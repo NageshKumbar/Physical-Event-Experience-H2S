@@ -1,0 +1,225 @@
+.operator-layout {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  background: var(--bg-dark);
+  color: var(--text-main);
+}
+
+.sidebar {
+  width: 250px;
+  height: 100%;
+  border-radius: 0;
+  border-left: none;
+  border-top: none;
+  border-bottom: none;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 3rem;
+}
+
+.badge-pro {
+  background: linear-gradient(135deg, var(--secondary), #f43f5e);
+  font-size: 0.6rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 800;
+}
+
+.side-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.side-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: transparent;
+  color: var(--text-muted);
+  border: none;
+  padding: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+}
+
+.side-nav-item:hover, .side-nav-item.active {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-main);
+}
+
+.side-nav-item.active {
+  border-left: 3px solid var(--primary);
+  border-radius: 0 8px 8px 0;
+}
+
+.dashboard-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  gap: 1.5rem;
+  overflow-y: auto;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.stats-row {
+  display: flex;
+  gap: 2rem;
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.stat-card span {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.stat-card strong {
+  font-size: 1.5rem;
+}
+
+.dashboard-content {
+  display: flex;
+  gap: 1.5rem;
+  flex: 1;
+}
+
+@media (max-width: 900px) {
+  .dashboard-content {
+    flex-direction: column;
+  }
+}
+
+.heatmap-section {
+  flex: 2;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.dot.safe { background: #10b981; }
+.dot.warn { background: #f59e0b; }
+.dot.danger { background: #ef4444; }
+
+.heatmap-display {
+  flex: 1;
+  background: #1e293b;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><rect width="200" height="200" fill="%231e293b"/><path d="M0 100 Q 50 50 100 100 T 200 100" stroke="%23334155" fill="none" stroke-width="2"/><circle cx="100" cy="100" r="80" stroke="%23334155" fill="none" stroke-width="2"/></svg>') center center / cover;
+}
+
+.node {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  filter: blur(10px);
+  opacity: 0.6;
+  animation: pulse 3s infinite;
+}
+
+.node.safe { background: #10b981; box-shadow: 0 0 30px #10b981; }
+.node.warn { background: #f59e0b; box-shadow: 0 0 30px #f59e0b; }
+.node.danger { background: #ef4444; box-shadow: 0 0 40px #ef4444; }
+
+.heatmap-overlay {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  background: rgba(0,0,0,0.5);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.coordination-section {
+  flex: 1;
+  padding: 1.5rem;
+  min-width: 300px;
+}
+
+.subtext {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.input-field {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  padding: 12px;
+  color: var(--text-main);
+  font-family: inherit;
+  width: 100%;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+textarea.input-field {
+  resize: vertical;
+}
