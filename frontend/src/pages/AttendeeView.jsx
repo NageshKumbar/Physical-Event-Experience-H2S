@@ -23,7 +23,7 @@ export default function AttendeeView() {
 
   // Fetch Events
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/events/')
+    fetch('https://physical-event-experience-h2s.onrender.com/api/events/')
       .then(res => res.json())
       .then(data => {
         setEvents(data);
@@ -35,7 +35,7 @@ export default function AttendeeView() {
   useEffect(() => {
     if (activeEvent) {
       setLoading(true);
-      fetch(`http://127.0.0.1:8000/api/service-points/?event=${activeEvent.id}`)
+      fetch(`https://physical-event-experience-h2s.onrender.com/api/service-points/?event=${activeEvent.id}`)
         .then(res => res.json())
         .then(data => {
           const formatted = data.map(sp => ({
@@ -60,7 +60,7 @@ export default function AttendeeView() {
   // Fetch securely authenticated user profile + orders
   useEffect(() => {
     if (authToken) {
-      fetch('http://127.0.0.1:8000/api/users/me/', {
+      fetch('https://physical-event-experience-h2s.onrender.com/api/users/me/', {
         headers: { 'Authorization': `Bearer ${authToken}` }
       })
       .then(res => res.json())
@@ -79,7 +79,7 @@ export default function AttendeeView() {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    fetch('http://127.0.0.1:8000/api/token/', {
+    fetch('https://physical-event-experience-h2s.onrender.com/api/token/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username: loginUsername, password: loginPassword })
@@ -102,7 +102,7 @@ export default function AttendeeView() {
   };
 
   const handleUpdateProfile = () => {
-    fetch(`http://127.0.0.1:8000/api/users/${userProfile.id}/`, {
+    fetch(`https://physical-event-experience-h2s.onrender.com/api/users/${userProfile.id}/`, {
       method: 'PATCH',
       headers: { 
         'Authorization': `Bearer ${authToken}`,
@@ -120,7 +120,7 @@ export default function AttendeeView() {
   const joinQueue = (q) => {
     setActiveQueue(q);
     if (q.queueId && authToken) {
-      fetch(`http://127.0.0.1:8000/api/queues/${q.queueId}/join/`, { 
+      fetch(`https://physical-event-experience-h2s.onrender.com/api/queues/${q.queueId}/join/`, { 
           method: 'POST',
           headers: { 'Authorization': `Bearer ${authToken}` }
       })
