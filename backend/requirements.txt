@@ -1,6 +1,7 @@
 # Core Framework
 Django==5.0.3
 djangorestframework==3.15.1
+gunicorn==21.2.0
 
 # Authentication & Security
 django-cors-headers==4.3.1
